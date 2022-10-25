@@ -1,0 +1,194 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:monospace;
+    background-color: lavender;
+}
+input{
+    display: none;
+}
+.container{
+    height: 200%;
+    width: 100%;
+    text-align: center;
+}
+h1{
+    font-weight: none;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+    background-color: rgb(177, 177, 235);
+}
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: darkolivegreen;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    background-color: lavender;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+h3{
+    height: 100%;
+    background-color: slategray;
+    line-height: 60px;
+    padding: 0 50px;
+    color: azure;
+}
+label{
+     display: inline-block;
+     height: 100%;
+     margin: 0 20px;
+     line-height: 60px;
+     font-size: 18px;
+     color: olive;
+     cursor: pointer;
+     transition: color .5s;
+}
+label:hover{
+    color: rosybrown;
+}
+.book-gallery{
+    width: 60%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+} 
+
+.pic{
+    position: relative;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px lightcyan;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: .5s ease-in-out;
+}
+.pic::before{
+    content: "OPEN";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: lavender;
+    font-size: 22px;
+    font-style: italic;
+    width: 100%;
+    margin-top: -100%;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s; 
+    z-index: 1;
+}
+.pic::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0, 0, 0, .4);
+    transition: .3s  ease-in-out;
+}
+.pic:hover::after{
+    height: 100%;
+}
+.pic:hover::before{
+    margin-top: 0;
+    opacity: 1;
+}
+#check1:checked ~ .container .book-gallery .pic{
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s ease-in-out;   
+}
+
+#check2:checked ~ .container .book-gallery .DRAMA{
+     transform: scale(1);
+     opacity: 1;
+     position: relative;
+     transition: .5s ease-in-out;   
+}
+
+#check2:checked ~ .container .book-gallery .ROMANCE,
+#check2:checked ~ .container .book-gallery .DRAMA{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: .5s ease-in-out;
+}
+
+#check4:checked ~ .container .book-gallery .HISTORICAL{
+   transform: scale(1);
+    opacity: 1;
+    position: relative;
+    transition: .5s ease-in-out;
+}
+#check4:checked ~ .container .book-gallery .ROMANCE,
+#check4:checked ~ .container .book-gallery .HISTORICAL{
+   opacity: 0;
+   transform: scale(0);
+   position: absolute;
+   transition: .5s ease-in-out;
+}
+
+#check5:checked ~ .container .book-gallery .FANTASY{
+   transform: scale(1);
+    opacity: 1;
+    position: relative;
+    transition: .5s ease-in-out;
+}
+#check5:checked ~ .container .book-gallery .ROMANCE,
+#check5:checked ~ .container .book-gallery .FANTASY{
+   opacity: 0;
+   transform: scale(0);
+   position: absolute;
+   transition: .5s ease-in-out;
+}
+#check5:checked ~ .container .book-gallery .HUMOR{
+    transform: scale(1);
+     opacity: 1;
+     position: relative;
+     transition: .5s ease-in-out;
+ }
+ #check5:checked ~ .container .book-gallery .ROMANCE,
+ #check5:checked ~ .container .book-gallery .HUMOR{
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+    transition: .5s ease-in-out;
+ }
+
+ 
